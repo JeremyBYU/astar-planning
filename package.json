@@ -18,7 +18,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@types/lodash": "^4.14.38"
+    "@types/lodash": "^4.14.38",
+    "@types/node": "^6.0.46",
+    "js-priority-queue": "^0.1.5"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
