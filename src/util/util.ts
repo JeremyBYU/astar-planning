@@ -11,3 +11,26 @@ export function create2DMap(x: number, y: number): NodeT[][] {
     }
     return _map
 }
+
+export function createHeuristicMap() {
+    const mapH =
+    [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 120, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 120, 100, 0, 0, 0, 0],
+    [0, 0, 0, 100, 120, 100, 0, 0, 0, 0],
+    [0, 0, 0, 100, 110, 100, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ]
+    return mapH
+}
+
+export function transormNodestoCell(nodes: NodeT[]) {
+   return  _.map(nodes, (node) => {
+        return { x: node.x, y: node.y }
+    })
+}
