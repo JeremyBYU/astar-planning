@@ -4,6 +4,7 @@
   "description": "A Start Planning Algorithm",
   "main": "index.js",
   "scripts": {
+    "pretest": "npm run build",
     "test": "tape build/tests/test.js",
     "clean": "rimraf build",
     "prebuild": "npm run clean",

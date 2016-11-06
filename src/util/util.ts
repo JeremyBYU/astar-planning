@@ -1,5 +1,5 @@
 import * as _ from 'lodash'
-import NodeT from '../nodet'
+import NodeT from '../types'
 
 export function create2DMap(x: number, y: number): NodeT[][] {
     const _map = new Array(x)
@@ -45,7 +45,7 @@ export const sampleCorrectPath = [
 ]
 
 
-export function transormNodestoCell(nodes: NodeT[]) {
+export function transformNodestoCells(nodes: NodeT[]) {
    return  _.map(nodes, (node) => {
         return { x: node.x, y: node.y }
     })

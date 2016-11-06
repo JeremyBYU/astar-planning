@@ -1,5 +1,5 @@
 import * as _ from 'lodash'
-import NodeT from './nodet'
+import NodeT from './types'
 import { HeursticFunction, DistanceFunction, Cell, AStarResult } from './types'
 // const PriorityQueue = require('js-priority-queue')
 
@@ -77,7 +77,7 @@ export default class AStar {
             return result
         }
 
-        const bestPath = this.createPath(this.endGoalNode)
+        const bestPath = this.createPath(this.endGoalNode) // return the best path (as nodes)
         return bestPath
     }
 

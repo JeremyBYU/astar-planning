@@ -1,7 +1,7 @@
 import * as t from 'tape'
 
-import { create2DMap, sampleHeuristicMap, transormNodestoCell, sampleCorrectPath } from '../util/util'
-import NodeT from '../nodet'
+import { create2DMap, sampleHeuristicMap, transformNodestoCells, sampleCorrectPath } from '../util/util'
+import NodeT from '../types'
 import AStar from '../astar'
 import { Cell } from '../types'
 
@@ -16,9 +16,8 @@ function heuristicFunction(node1: NodeT, goalNode: NodeT) {
     return mapH[node1.x][node1.y] + costFunction(node1, goalNode)
 }
 
-
- 
 t('Test Sampple Path', function (t) {
+    t.plan(1)
     const x = 10
     const y = 10
     const map2D = create2DMap(x, y)
@@ -30,12 +29,13 @@ t('Test Sampple Path', function (t) {
 
     AStarPlanner.initializeSearch(startCell, endGoal)
 
-    const path = AStarPlanner.findPath()
+    let path = AStarPlanner.findPath()
 
     if (typeof path === 'number') {
         t.fail('ERROR: ' + path)
     } else {
-        t.deepEqual(path, sampleCorrectPath)
+        const cells = transformNodestoCells(path)
+        t.deepEqual(cells, sampleCorrectPath, 'AStar Path should be Equal to Correct Path')
     }
 
 
