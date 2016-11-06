@@ -1,5 +1,6 @@
 import * as _ from 'lodash'
 import NodeT from './types'
+import { create2DMap } from './util/util'
 import { HeursticFunction, DistanceFunction, Cell, AStarResult } from './types'
 // const PriorityQueue = require('js-priority-queue')
 
@@ -19,13 +20,20 @@ export default class AStar {
     private _cols: number
     private _initialized: boolean
 
-    constructor(map: NodeT[][], distanceCostFunction: DistanceFunction, heuristicFunction: HeursticFunction) {
-        this.map = map
+    constructor(distanceCostFunction: DistanceFunction, heuristicFunction: HeursticFunction, map: NodeT[][] | { x: number, y: number}) {
         this.heursticCostEstimate = heuristicFunction
         this.distanceCost = distanceCostFunction
+        if (Array.isArray(map)) {
+            this.map = map
+        } else {
+            this.map = create2DMap(map.x, map.y)
+        }
 
         this.openList = []
         this.closedList = []
+
+        this._rows = this.map.length
+        this._cols = this.map[0].length
 
     }
 
@@ -51,8 +59,6 @@ export default class AStar {
         this.endGoalNode.h = 0
         this.endGoalNode.f = 0
 
-        this._rows = this.map.length
-        this._cols = this.map[0].length
 
         const safe = (this.startNode !== null && this.endGoalNode !== null )
         if (safe) {

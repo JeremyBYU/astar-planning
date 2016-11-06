@@ -16,7 +16,7 @@ function heuristicFunction(node1: NodeT, goalNode: NodeT) {
     return mapH[node1.x][node1.y] + costFunction(node1, goalNode)
 }
 
-t('Test Sampple Path', function (t) {
+t('Test Sample Path', function (t) {
     t.plan(1)
     const x = 10
     const y = 10
@@ -24,7 +24,7 @@ t('Test Sampple Path', function (t) {
     // Set up Test
     const startCell: Cell = { x: 0, y: 0 }
     const endGoal: Cell = { x: 9, y: 9 }
-    const AStarPlanner = new AStar(map2D, costFunction, heuristicFunction)
+    const AStarPlanner = new AStar(costFunction, heuristicFunction, map2D)
 
 
     AStarPlanner.initializeSearch(startCell, endGoal)
