@@ -1,5 +1,6 @@
 # Created by https://www.gitignore.io/api/node
-build
+build/tests
+*.map
 # Dependency directories
 node_modules
 typings
