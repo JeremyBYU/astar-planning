@@ -1,7 +1,7 @@
 {
   "name": "astar-planning",
-  "version": "1.0.0",
-  "description": "A Start Planning Algorithm",
+  "version": "1.0.1",
+  "description": "A Star Planning Algorithm",
   "main": "build/index.js",
   "scripts": {
     "pretest": "npm run build",
@@ -16,7 +16,7 @@
     "prestart": "npm run build -s",
     "start": "run-p -s watch server"
   },
-  "author": "",
+  "author": "Jeremy Castagno",
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.16.6"
